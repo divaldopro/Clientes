@@ -1,15 +1,28 @@
 from fastapi import FastAPI
-
-app = FastAPI()
 import csv
 import os
+from pydantic import BaseModel
+
+app = FastAPI()
+
+class Estudante(BaseModel):
+	name: str
+	curso: str
+	ativo: bool
+
+@app.post("/estudantes/cadastro")
+async def create_estudante(estudante: Estudante):
+	return estudante
+
+@app.put("/estudantes/update/{id_estudante}")
+async def update_item(id_estudante: int):
+	return id_estudante > 0
 
 
-@app.get("/delloword")
+@app.get("/")
 # 127.0.0.1:8000/
 async def root():
-    return {"message": "Hello World"}
-
+    return {"message": "TESTANDO O DOCKER"}
 
 # Nome do arquivo onde os dados serão salvos
 arquivo_csv = 'clientes.csv'

@@ -16,4 +16,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: projetozipado.zip
-          path: ./**.py
+          path: |
+            '**.py'
+            README.md

@@ -5,8 +5,6 @@ WORKDIR /usr/src/app
 COPY requeriments.txt ./
 RUN pip install --no-cache-dir -r requeriments.txt
 
-COPY . .
-
 EXPOSE 80
-
+COPY . .
 CMD [ "fastapi", "run", "main.py", "--port", "80" ]

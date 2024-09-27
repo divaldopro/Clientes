@@ -33,6 +33,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run Discord Webhook
-        uses: sniddl/discord-commits@main
+        uses: Sniddl/discord-commits@v1.7
         with:
           webhook_url: ${{ secrets.DISCORD.WEBHOOK }}
+          template: "avatar-with-link"
+          include-extras: true
